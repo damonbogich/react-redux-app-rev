@@ -1,10 +1,11 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux'
 import {fetchTeam} from '../store/actions';
 import Loader from "react-loader-spinner";
 import TeamDetails from './TeamDetails';
 
 const Team = (props) => {
+
     useEffect(() => {
         props.fetchTeam();
     }, []);
@@ -22,6 +23,7 @@ const Team = (props) => {
                 timeout={5000}
               />}
             {props.team && <TeamDetails team={props.team}/>}
+            <button onClick={props.fetchTeam}>New Team</button>
         </div>
     )
 }
