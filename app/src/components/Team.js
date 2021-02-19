@@ -9,11 +9,11 @@ const Team = (props) => {
     useEffect(() => {
         props.fetchTeam();
     }, []);
-
-    console.log(props, 'props')
+    
     return (
         <div>
             <h1>NBA API Challenge</h1>
+            {((Object.keys(props.team).length === 0) && (props.isFetching === false) && <p>Press button to get team</p>)}
             {props.isFetching &&
              <Loader
                 type="Puff"
